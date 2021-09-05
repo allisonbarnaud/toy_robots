@@ -8,6 +8,11 @@ Still to do:
 - refactor code, better legibility
 - Add more comments
 
+To run this code:
+1. download toy_robots.rb to your local machine
+2. in your CLI, type "ruby toy_robots.rb"
+3. A "while" loop allows you to enter the commands indefinitely in your CLI
+
 
 
 
