@@ -27,9 +27,9 @@ def command_place(command_input, robot_name)
         y = $robot_list[robot_name][1][1]
 
         if x == 0
-            $board[5][y.to_i] = 0
+            $board[5][y] = 0
         else
-            $board[-(x.to_i)-1][y.to_i] = 0
+            $board[-(x.to_i)-1][y] = 0
         end
 
         coords = command_input[2].split(",")
