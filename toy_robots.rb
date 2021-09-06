@@ -47,7 +47,6 @@ def command_place(command_input, robot_name)
         else
             $board[-(x.to_i)-1][y.to_i] = robot_name
         end
-        puts "Board: #{$board}"
 
         puts "A robot named #{robot_name} already exists!"
     else
@@ -65,7 +64,6 @@ def command_place(command_input, robot_name)
         else
             $board[-(y.to_i)-1][x.to_i] = robot_name
         end
-        puts "Board: #{$board}"
 
         # adds coordinates of respective robot to hash, for tracking
         $robot_list[robot_name].push([x, y, direction])
@@ -73,9 +71,14 @@ def command_place(command_input, robot_name)
         puts "A robot named #{robot_name} has been created."
     end
 
-    puts $robot_list
-
     puts "#{robot_name} has been placed at [#{x},#{y}], facing #{direction}"
+    puts "Board:"
+    puts "#{$board[0]}"
+    puts "#{$board[1]}"
+    puts "#{$board[2]}"
+    puts "#{$board[3]}"
+    puts "#{$board[4]}"
+    puts "#{$board[5]}"
     
 end
 
@@ -150,12 +153,18 @@ def command_move(name)
             $robot_list[name][1][0]-=1
         end
     end
-    puts "Board: #{$board}"
+    puts "Board:"
+    puts "#{$board[0]}"
+    puts "#{$board[1]}"
+    puts "#{$board[2]}"
+    puts "#{$board[3]}"
+    puts "#{$board[4]}"
+    puts "#{$board[5]}"
+
 end
 
 def command_left(name)
     direction = $robot_list[name][1][2]
-    puts "Direction was #{direction}"
     if direction == "NORTH"
         direction = "WEST"
     elsif direction == "WEST"
@@ -167,7 +176,7 @@ def command_left(name)
     end
 
     $robot_list[name][1][2] = direction
-    puts "Direction changed to #{direction}"
+    puts "Direction of #{name} changed to #{direction}"
 end
 
 def command_right(name)
@@ -189,6 +198,13 @@ end
 
 def command_report(name)
     puts "#{name}: #{$robot_list[name][1][0]}, #{$robot_list[name][1][1]}, #{$robot_list[name][1][2]}"
+    puts "Board:"
+    puts "#{$board[0]}"
+    puts "#{$board[1]}"
+    puts "#{$board[2]}"
+    puts "#{$board[3]}"
+    puts "#{$board[4]}"
+    puts "#{$board[5]}"
 end
 
 # MAIN CONTROLLER: method reading and processing command inputs
