@@ -143,7 +143,8 @@ def command_move(name)
         elsif y == 0 && x == 0 
             $board[5][x] = name
             puts "You've hit an edge!"
-        elsif y!=0 && x > 0 && $board[(-y)-1][x-1] == 0
+        elsif y > 0 && x > 0 && $board[(-y)-1][x-1] == 0
+            $board[(-y)-1][x] = 0
             $board[(-y)-1][x-1] = name
 
             $robot_list[name][1][0]-=1
@@ -181,7 +182,6 @@ end
 
 def command_right(name)
     direction = $robot_list[name][1][2]
-    puts "Direction was #{direction}"
     if direction == "NORTH"
         direction = "EAST"
     elsif direction == "EAST"
@@ -193,7 +193,7 @@ def command_right(name)
     end
     
     $robot_list[name][1][2] = direction
-    puts "Direction changed to #{direction}"
+    puts "Direction of #{name} changed to #{direction}"
 end
 
 def command_report(name)
